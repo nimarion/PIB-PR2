@@ -1,0 +1,15 @@
+{
+    "name": "PIB-PR2",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/zsh",
+        "java.home": "/usr/local/openjdk-15"
+    },
+    "extensions": [
+        "vscjava.vscode-java-pack",
+        "ms-vsliveshare.vsliveshare"
+    ],
+}
