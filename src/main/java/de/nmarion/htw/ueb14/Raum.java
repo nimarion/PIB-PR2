@@ -1,4 +1,4 @@
-package ueb14;
+package de.nmarion.htw.ueb14;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,21 @@ public class Raum {
     private final int etage;
     private final int raum;
 
+    /**
+     * Konstruktor für die Raum Klasse
+     * @param geb die Gebäudenummer für den Raum
+     * @param etage die Etagen des Raums
+     * @param raum die Raumnummer
+     * @throws IllegalArgumentException wenn <code>geb</code> negativ ist
+     * @throws IllegalArgumentException wenn <code>raum</code> negativ ist
+     */
     public Raum(final int geb, final int etage, final int raum) {
+        if(geb < 0){
+            throw new IllegalArgumentException("Gebäudenummer darf nicht negativ sein");
+        }
+        if(raum < 0){
+            throw new IllegalArgumentException("Raumnummer darf nicht negativ sein");
+        }
         this.geb = geb;
         this.etage = etage;
         this.raum = raum;

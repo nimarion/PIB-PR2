@@ -1,4 +1,4 @@
-package ueb14;
+package de.nmarion.htw.ueb14;
 
 public class Reservierung {
 
@@ -8,6 +8,11 @@ public class Reservierung {
     private final Uhrzeit beginn;
     private final Uhrzeit ende;
 
+    /**
+     * Konstruktor der Reservierung Klasse
+     * @param beginn Beginn der Reservierung
+     * @param ende Ende der Reservierung
+     */
     public Reservierung(final Uhrzeit beginn, final Uhrzeit ende) {
         this.beginn = beginn;
         this.ende = ende;
@@ -22,7 +27,15 @@ public class Reservierung {
         raum.addReservierung(this);
     }
 
+    /**
+     * Ändert die Bemerkung für die Reservierung
+     * @param bemerkung die neue Bemerkung
+     * @throws IllegalArgumentException wenn <code>bemerkung</code> null oder leer ist
+     */
     public void setBemerkung(String bemerkung) {
+        if (bemerkung == null || bemerkung.isBlank()) {
+            throw new IllegalArgumentException("Bemerkung darf nicht null sein");
+        }
         this.bemerkung = bemerkung;
     }
 

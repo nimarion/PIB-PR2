@@ -1,11 +1,22 @@
-package ueb14;
+package de.nmarion.htw.ueb14;
 
 public class Person {
 
     private final String vorname;
     private final String nachname;
 
+    /**
+     * Konstruktor für die Person Klasse
+     * @param vorname der Vorname der Person
+     * @param nachname der Nachname der Person
+     */
     public Person(final String vorname, final String nachname) {
+        if (vorname == null || vorname.isBlank()) {
+            throw new IllegalArgumentException("Vorname darf nicht null sein");
+        }
+        if (nachname == null || nachname.isBlank()) {
+            throw new IllegalArgumentException("Nachname darf nicht null sein");
+        }
         this.vorname = vorname;
         this.nachname = nachname;
     }

@@ -1,20 +1,33 @@
-package ueb14;
+package de.nmarion.htw.ueb14;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Mitarbeiter extends Person {
 
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     private final String email;
     protected List<Reservierung> buchungen;
 
     /**
-     * @param vorname
-     * @param nachname
-     * @param email
+     * Konstruktor für die Mitarbeiter Klasse
+     * @param vorname Vorname des Mitarbeiters
+     * @param nachname Nachname des Mitarbeiters
+     * @param email Email des Mitarbeiters
+     * @throws IllegalArgumentException Wenn <code>email</code> null oder leer ist
+     * @throws IllegalArgumentException Wenn <code>email</code> keine gültige Email Adresse ist
      */
     public Mitarbeiter(String vorname, String nachname, String email) {
         super(vorname, nachname);
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email darf nicht null sein");
+        }
+        final Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
+        if(!matcher.matches()){
+            throw new IllegalArgumentException("Keine gültige Email");
+        }
         this.email = email;
         this.buchungen = new ArrayList<>();
     }
@@ -23,6 +36,13 @@ public class Mitarbeiter extends Person {
         return email;
     }
 
+    /**
+     * Erstellt eine Reservierung für den aktuellen Mitarbeiter
+     * @param raum der Raum der reserviert werden soll
+     * @param beginn der Beginn der Reservierung
+     * @param ende das Ende der Reservierung
+     * @param bemerkung die Bemerkung für die Reservierung
+     */
     public void reserviere(final Raum raum, final Uhrzeit beginn, final Uhrzeit ende, final String bemerkung) {
         final Reservierung reservierung = new Reservierung(beginn, ende);
         reservierung.setBemerkung(bemerkung);
