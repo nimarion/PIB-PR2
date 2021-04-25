@@ -34,6 +34,15 @@ public class Uhrzeit {
   public String toString() {
     return String.format("%d:%d Uhr", stunde, minute);
   }
+  
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + minute;
+    result = prime * result + stunde;
+    return result;
+  }
 
   @Override
   public boolean equals(Object obj) {
@@ -46,4 +55,5 @@ public class Uhrzeit {
     final Uhrzeit uhrzeit = (Uhrzeit) obj;
     return uhrzeit.getMinute() == this.minute && uhrzeit.getStunde() == this.stunde;
   }
+
 }

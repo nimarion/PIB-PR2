@@ -15,6 +15,9 @@ public class Reservierung {
    * @param ende Ende der Reservierung
    */
   public Reservierung(final Uhrzeit beginn, final Uhrzeit ende) {
+    if(beginn.equals(ende)){
+      throw new IllegalArgumentException("Beginn und Ende darf nicht gleich sein"); // Fab
+    }
     this.beginn = beginn;
     this.ende = ende;
   }
@@ -57,7 +60,20 @@ public class Reservierung {
   public String toString() {
     return String.format("%s von %s bis %s für %s", von, beginn, ende, this.bemerkung);
   }
+  
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((beginn == null) ? 0 : beginn.hashCode());
+    result = prime * result + ((bemerkung == null) ? 0 : bemerkung.hashCode());
+    result = prime * result + ((ende == null) ? 0 : ende.hashCode());
+    result = prime * result + ((raum == null) ? 0 : raum.hashCode());
+    result = prime * result + ((von == null) ? 0 : von.hashCode());
+    return result;
+  }
 
+  
   @Override
   public boolean equals(Object obj) {
     if (obj == this) {
@@ -67,8 +83,9 @@ public class Reservierung {
       return false;
     }
     final Reservierung reservierung = (Reservierung) obj;
-    return reservierung.getBemerkung() == this.bemerkung
+    return reservierung.getBemerkung().equals(this.bemerkung)
         && reservierung.getBeginn().equals(this.beginn)
         && reservierung.getEnde().equals(this.ende);
   }
+
 }

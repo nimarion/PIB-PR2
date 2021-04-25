@@ -65,6 +65,17 @@ public class Raum {
   }
 
   @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + etage;
+    result = prime * result + geb;
+    result = prime * result + raum;
+    result = prime * result + ((reservierung == null) ? 0 : reservierung.hashCode());
+    return result;
+  }
+  
+  @Override
   public boolean equals(Object obj) {
     if (obj == this) {
       return true;
@@ -77,4 +88,5 @@ public class Raum {
         && raum.getGeb() == this.geb
         && raum.getRaum() == this.raum;
   }
+  
 }

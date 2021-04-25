@@ -36,6 +36,15 @@ public class Person {
   }
 
   @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((nachname == null) ? 0 : nachname.hashCode());
+    result = prime * result + ((vorname == null) ? 0 : vorname.hashCode());
+    return result;
+  }
+
+  @Override
   public boolean equals(Object obj) {
     if (obj == this) {
       return true;
@@ -46,4 +55,5 @@ public class Person {
     final Person person = (Person) obj;
     return person.getNachname().equals(this.nachname) && person.getVorname().equals(this.vorname);
   }
+ 
 }

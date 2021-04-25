@@ -61,9 +61,21 @@ public class Mitarbeiter extends Person {
   }
 
   @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = super.hashCode();
+    result = prime * result + ((buchungen == null) ? 0 : buchungen.hashCode());
+    result = prime * result + ((email == null) ? 0 : email.hashCode());
+    return result;
+  }
+
+  @Override
   public boolean equals(Object obj) {
     if (obj == this) {
       return true;
+    }
+    if(!super.equals(obj)){
+      return false;
     }
     if (!(obj instanceof Mitarbeiter)) {
       return false;
@@ -73,4 +85,6 @@ public class Mitarbeiter extends Person {
         && mitarbeiter.getVorname().equals(this.getVorname())
         && mitarbeiter.getNachname().equals(this.getNachname());
   }
+ 
+
 }
