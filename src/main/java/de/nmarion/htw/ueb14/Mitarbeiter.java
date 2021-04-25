@@ -74,7 +74,7 @@ public class Mitarbeiter extends Person {
     if (obj == this) {
       return true;
     }
-    if(!super.equals(obj)){
+    if (!super.equals(obj)) {
       return false;
     }
     if (!(obj instanceof Mitarbeiter)) {
@@ -85,6 +85,4 @@ public class Mitarbeiter extends Person {
         && mitarbeiter.getVorname().equals(this.getVorname())
         && mitarbeiter.getNachname().equals(this.getNachname());
   }
- 
-
 }

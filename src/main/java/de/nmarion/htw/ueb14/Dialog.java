@@ -12,11 +12,16 @@ public class Dialog {
   /** Methode zum interaktiven Testen der Artikel Klasse */
   public void readInput() {
     try (final Scanner scanner = new Scanner(System.in, "UTF-8")) {
-      System.out.printf("mitarbeiter - Mitarbeiter anlegen%nraum - Raum anlegen%nreserveierung - Reservierung anlegen%nAusgeben - Gibt alle Räume mit Reservierung aus%nstop - Stoppt die Anwendung%n");
+      System.out.printf(
+          "mitarbeiter - Mitarbeiter anlegen%nraum - Raum anlegen%nreserveierung - Reservierung"
+              + " anlegen%nAusgeben - Gibt alle Räume mit Reservierung aus%nstop - Stoppt die"
+              + " Anwendung%n");
       while (true) {
         final String input = readString(scanner, "Command: ").toLowerCase().trim();
-        if ((mitarbeiterList.isEmpty() || raumList.isEmpty()) && input.equalsIgnoreCase("reservierung")) {
-          System.out.println("Es wurde noch keine Räume oder Mitarbeiter mit *mitarbeiter* oder *raum* erstellt");
+        if ((mitarbeiterList.isEmpty() || raumList.isEmpty())
+            && input.equalsIgnoreCase("reservierung")) {
+          System.out.println(
+              "Es wurde noch keine Räume oder Mitarbeiter mit *mitarbeiter* oder *raum* erstellt");
           continue;
         }
         executeCommand(scanner, input);
@@ -28,27 +33,27 @@ public class Dialog {
    * Führt den eingebenen Befehl aus
    *
    * @param scanner das genutzte Scanner Objekt
-   * @param input   der eingebene Command
+   * @param input der eingebene Command
    */
   private void executeCommand(final Scanner scanner, String input) {
     try {
       switch (input) {
-      case "mitarbeiter":
-        mitarbeiterList.add(createMitarbeiter(scanner));
-        break;
-      case "raum":
-        raumList.add(createRaum(scanner));
-        break;
-      case "reservierung":
-        createReservierung(scanner);
-        break;
-      case "ausgeben":
-        raumList.forEach(System.out::println);
-        break;
-      case "stop":
-        System.exit(0);
-      default:
-        System.out.printf("Der Befehl %s existiert nicht%n", input);
+        case "mitarbeiter":
+          mitarbeiterList.add(createMitarbeiter(scanner));
+          break;
+        case "raum":
+          raumList.add(createRaum(scanner));
+          break;
+        case "reservierung":
+          createReservierung(scanner);
+          break;
+        case "ausgeben":
+          raumList.forEach(System.out::println);
+          break;
+        case "stop":
+          System.exit(0);
+        default:
+          System.out.printf("Der Befehl %s existiert nicht%n", input);
       }
     } catch (Exception exception) {
       exception.printStackTrace();
@@ -88,11 +93,14 @@ public class Dialog {
    */
   private void createReservierung(final Scanner scanner) {
     final Raum raum = (Raum) selectFromList(scanner, "Wähle einen Raum aus: ", this.raumList);
-    final Mitarbeiter mitarbeiter = (Mitarbeiter) selectFromList(scanner, "Wähle einen Mitarbeiter aus: ",
-        this.mitarbeiterList);
+    final Mitarbeiter mitarbeiter =
+        (Mitarbeiter)
+            selectFromList(scanner, "Wähle einen Mitarbeiter aus: ", this.mitarbeiterList);
     final String bemerkung = readString(scanner, "Bemerkung: ");
-    final Uhrzeit start = new Uhrzeit(readInt(scanner, "Startstunde: "), readInt(scanner, "Startminute: "));
-    final Uhrzeit end = new Uhrzeit(readInt(scanner, "Endstunde: "), readInt(scanner, "Endminute: "));
+    final Uhrzeit start =
+        new Uhrzeit(readInt(scanner, "Startstunde: "), readInt(scanner, "Startminute: "));
+    final Uhrzeit end =
+        new Uhrzeit(readInt(scanner, "Endstunde: "), readInt(scanner, "Endminute: "));
     mitarbeiter.reserviere(raum, start, end, bemerkung);
     System.out.println("Reservierung wurde erstellt");
   }
@@ -100,12 +108,13 @@ public class Dialog {
   /**
    * Erlaubt das Auswählen eines Objektes aus einer Liste
    *
-   * @param scanner      das genutzte Scanner Objekt
+   * @param scanner das genutzte Scanner Objekt
    * @param promtMessage
-   * @param list         die zu nutzende Liste
+   * @param list die zu nutzende Liste
    * @return das ausgewählte Objekt
    */
-  private Object selectFromList(final Scanner scanner, final String promtMessage, final List<?> list) {
+  private Object selectFromList(
+      final Scanner scanner, final String promtMessage, final List<?> list) {
     System.out.println(promtMessage);
     for (int i = 0; i < list.size(); i++) {
       System.out.println(String.format("%d: %s", i, list.get(i)));
@@ -118,7 +127,7 @@ public class Dialog {
   }
 
   /**
-   * @param scanner      das genutzte Scanner Objekt
+   * @param scanner das genutzte Scanner Objekt
    * @param promtMessage
    * @return der eingegebene String
    */

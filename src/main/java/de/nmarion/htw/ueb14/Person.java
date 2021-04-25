@@ -55,5 +55,4 @@ public class Person {
     final Person person = (Person) obj;
     return person.getNachname().equals(this.nachname) && person.getVorname().equals(this.vorname);
   }
- 
 }
