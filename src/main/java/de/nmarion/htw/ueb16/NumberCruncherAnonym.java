@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class NumberCruncherAnonym {
+public class NumberCruncherAnonym extends NumberCruncher {
 
-  private float[] list;
   private final List<Operation> operations;
 
-  public NumberCruncherAnonym(final float[] list) {
-    this.list = list;
+  public NumberCruncherAnonym(float[] list) {
+    super(list);
     operations = Arrays.asList(sum(), swirl(), divide(), subtract(), average());
   }
 
@@ -24,10 +23,9 @@ public class NumberCruncherAnonym {
     }
   }
 
-  public float[] getNumbers() {
-    return this.list;
-  }
-
+  /**
+   * Das Array wird stellenweise addiert. a[0] = a[1] + a[0]; a[1] = a[2] + a[1]
+   */
   private Operation sum() {
     return new Operation() {
 
@@ -45,6 +43,9 @@ public class NumberCruncherAnonym {
     };
   }
 
+  /**
+   * Das Array wird zufällig durchgemischt
+   */
   private Operation swirl() {
     return new Operation() {
       @Override
@@ -62,6 +63,10 @@ public class NumberCruncherAnonym {
     };
   }
 
+  /**
+   * Das Array wird stellenweise subtrahiert. a[0] = a[1] - a[0]; a[1] = a[2] -
+   * a[1]
+   */
   private Operation subtract() {
     return new Operation() {
       @Override
@@ -78,6 +83,10 @@ public class NumberCruncherAnonym {
     };
   }
 
+  /**
+   * Durchschnittswert der Werte im Array wird ermittelt und das Ergebnis an die
+   * Stelle des größten Wertes im Array platziert
+   */
   private Operation average() {
     return new Operation() {
       @Override
@@ -103,6 +112,11 @@ public class NumberCruncherAnonym {
     };
   }
 
+  /**
+   * Der größte Wert im Array wird durch den kleinsten Wert im Array geteilt, das
+   * Ergebnis wird an die Stelle des größten Wertes geschrieben. Das geht so
+   * weiter für den zweitgrößten/-kleinsten, drittgrößten/-kleinsten, usw.
+   */
   private Operation divide() {
     return new Operation() {
       @Override

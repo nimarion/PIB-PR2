@@ -10,6 +10,11 @@ public class Swirl implements CrunchOperation {
     return "swirl";
   }
 
+  /**
+   * Das Array wird zufällig durchgemischt
+   * 
+   * @param values Übergebenes Array
+   */
   @Override
   public void crunch(float[] values) {
     final Random r = new Random();

@@ -8,13 +8,12 @@ import de.nmarion.htw.ueb16.toplevel.Swirl;
 import java.util.Arrays;
 import java.util.List;
 
-public class NumberCruncherTopLevel {
+public class NumberCruncherTopLevel extends NumberCruncher {
 
-  private float[] list;
   private final List<CrunchOperation> operations;
 
-  public NumberCruncherTopLevel(final float[] list) {
-    this.list = list;
+  public NumberCruncherTopLevel(float[] list) {
+    super(list);
     operations = Arrays.asList(new Sum(), new Swirl(), new Divide(), new Subtract(), new Average());
   }
 
@@ -26,10 +25,6 @@ public class NumberCruncherTopLevel {
         }
       }
     }
-  }
-
-  public float[] getNumbers() {
-    return this.list;
   }
 
   public interface CrunchOperation {

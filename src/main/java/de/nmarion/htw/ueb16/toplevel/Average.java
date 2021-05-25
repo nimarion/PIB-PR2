@@ -9,6 +9,12 @@ public class Average implements CrunchOperation {
     return "average";
   }
 
+  /**
+   * Durchschnittswert der Werte im Array wird ermittelt und das Ergebnis
+   * an die Stelle des größten Wertes im Array platziert
+   * 
+   * @param values Übergebenes Array
+   */
   @Override
   public void crunch(float[] values) {
     float sum = 0;

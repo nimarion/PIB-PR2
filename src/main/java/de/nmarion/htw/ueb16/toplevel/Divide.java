@@ -10,6 +10,12 @@ public class Divide implements CrunchOperation {
     return "divide";
   }
 
+  /**
+   * Der größte Wert im Array wird durch den kleinsten Wert im Array geteilt, das Ergebnis wird an die Stelle
+   * des größten Wertes geschrieben. Das geht so weiter für den zweitgrößten/-kleinsten, drittgrößten/-kleinsten, usw.
+   * 
+   * @param values Übergebenes Array
+   */
   @Override
   public void crunch(float[] values) {
     Arrays.sort(values);
