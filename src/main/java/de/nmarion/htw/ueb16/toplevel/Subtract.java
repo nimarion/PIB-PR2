@@ -10,9 +10,8 @@ public class Subtract implements CrunchOperation {
   }
 
   /**
-   * Das Array wird stellenweise subtrahiert. a[0] = a[1] - a[0]; a[1] = a[2] -
-   * a[1]
-   * 
+   * Das Array wird stellenweise subtrahiert. a[0] = a[1] - a[0]; a[1] = a[2] - a[1]
+   *
    * @param values Übergebenes Array
    */
   @Override

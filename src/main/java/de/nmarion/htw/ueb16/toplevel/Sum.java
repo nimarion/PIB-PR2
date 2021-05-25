@@ -11,7 +11,7 @@ public class Sum implements CrunchOperation {
 
   /**
    * Das Array wird stellenweise addiert. a[0] = a[1] + a[0]; a[1] = a[2] + a[1]
-   * 
+   *
    * @param values Übergebenes Array
    */
   @Override

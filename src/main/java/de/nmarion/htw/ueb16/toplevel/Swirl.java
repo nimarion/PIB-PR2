@@ -12,7 +12,7 @@ public class Swirl implements CrunchOperation {
 
   /**
    * Das Array wird zufällig durchgemischt
-   * 
+   *
    * @param values Übergebenes Array
    */
   @Override

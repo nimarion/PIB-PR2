@@ -10,9 +10,9 @@ public class Average implements CrunchOperation {
   }
 
   /**
-   * Durchschnittswert der Werte im Array wird ermittelt und das Ergebnis
-   * an die Stelle des größten Wertes im Array platziert
-   * 
+   * Durchschnittswert der Werte im Array wird ermittelt und das Ergebnis an die Stelle des größten
+   * Wertes im Array platziert
+   *
    * @param values Übergebenes Array
    */
   @Override

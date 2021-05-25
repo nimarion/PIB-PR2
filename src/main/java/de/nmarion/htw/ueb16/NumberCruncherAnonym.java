@@ -23,9 +23,7 @@ public class NumberCruncherAnonym extends NumberCruncher {
     }
   }
 
-  /**
-   * Das Array wird stellenweise addiert. a[0] = a[1] + a[0]; a[1] = a[2] + a[1]
-   */
+  /** Das Array wird stellenweise addiert. a[0] = a[1] + a[0]; a[1] = a[2] + a[1] */
   private Operation sum() {
     return new Operation() {
 
@@ -43,9 +41,7 @@ public class NumberCruncherAnonym extends NumberCruncher {
     };
   }
 
-  /**
-   * Das Array wird zufällig durchgemischt
-   */
+  /** Das Array wird zufällig durchgemischt */
   private Operation swirl() {
     return new Operation() {
       @Override
@@ -63,10 +59,7 @@ public class NumberCruncherAnonym extends NumberCruncher {
     };
   }
 
-  /**
-   * Das Array wird stellenweise subtrahiert. a[0] = a[1] - a[0]; a[1] = a[2] -
-   * a[1]
-   */
+  /** Das Array wird stellenweise subtrahiert. a[0] = a[1] - a[0]; a[1] = a[2] - a[1] */
   private Operation subtract() {
     return new Operation() {
       @Override
@@ -84,8 +77,8 @@ public class NumberCruncherAnonym extends NumberCruncher {
   }
 
   /**
-   * Durchschnittswert der Werte im Array wird ermittelt und das Ergebnis an die
-   * Stelle des größten Wertes im Array platziert
+   * Durchschnittswert der Werte im Array wird ermittelt und das Ergebnis an die Stelle des größten
+   * Wertes im Array platziert
    */
   private Operation average() {
     return new Operation() {
@@ -113,9 +106,9 @@ public class NumberCruncherAnonym extends NumberCruncher {
   }
 
   /**
-   * Der größte Wert im Array wird durch den kleinsten Wert im Array geteilt, das
-   * Ergebnis wird an die Stelle des größten Wertes geschrieben. Das geht so
-   * weiter für den zweitgrößten/-kleinsten, drittgrößten/-kleinsten, usw.
+   * Der größte Wert im Array wird durch den kleinsten Wert im Array geteilt, das Ergebnis wird an
+   * die Stelle des größten Wertes geschrieben. Das geht so weiter für den zweitgrößten/-kleinsten,
+   * drittgrößten/-kleinsten, usw.
    */
   private Operation divide() {
     return new Operation() {
