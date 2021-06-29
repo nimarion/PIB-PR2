@@ -27,14 +27,7 @@ public class Ueb18Fassade {
    * @return Die sortierte Artikelliste.
    */
   public Artikel[] aufgabe_c_i(Lager lager) {
-    return lager.getSorted(
-        (a1, a2) -> {
-          if (a1.getArt().compareTo(a2.getArt()) == 0 || a1.getArt().compareTo(a2.getArt()) == 1) {
-            return true;
-          }
-          return false;
-        });
-    // TODO:
+    
   }
 
   /**
@@ -122,7 +115,8 @@ public class Ueb18Fassade {
         artikel -> {
           if (artikel instanceof CD) {
             artikel.aenderePreis(10);
-          } else if (artikel.getBestand() <= 2) {
+          } 
+		  if (artikel.getBestand() <= 2) {
             artikel.aenderePreis(-5);
           }
         });
