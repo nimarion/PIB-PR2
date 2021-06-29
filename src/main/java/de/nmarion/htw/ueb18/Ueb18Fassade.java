@@ -26,9 +26,7 @@ public class Ueb18Fassade {
    * @param lager Das Lager mit der unsortierten Artikelliste.
    * @return Die sortierte Artikelliste.
    */
-  public Artikel[] aufgabe_c_i(Lager lager) {
-    
-  }
+  public Artikel[] aufgabe_c_i(Lager lager) {}
 
   /**
    * Loest die Aufgabe (c) ii. <br>
@@ -115,8 +113,8 @@ public class Ueb18Fassade {
         artikel -> {
           if (artikel instanceof CD) {
             artikel.aenderePreis(10);
-          } 
-		  if (artikel.getBestand() <= 2) {
+          }
+          if (artikel.getBestand() <= 2) {
             artikel.aenderePreis(-5);
           }
         });
